@@ -1,0 +1,88 @@
+
+
+
+/*Amazing Deliceas Section css */
+.ourPakeg .main_pakeg_content .head_title h3{
+	color:#fff;
+	
+}
+.ourPakeg .main_pakeg_content .head_title h4{
+	color:#fff;
+	font-family: 'Pacifico', cursive;
+	font-size:1.875rem;
+}
+
+
+
+.single_pakeg_one{
+	background:url(../images/newsone.jpg) left center no-repeat;
+	padding:30px;
+	overflow:hidden;
+	margin-top:60px;
+}
+.single_pakeg_two{
+	background:url(../images/newstwo.jpg) right center no-repeat;
+	padding:30px;	
+	overflow:hidden;
+	margin-top:60px;	
+	
+}
+.single_pakeg_three{
+	background:url(../images/newsthree.jpg) left center no-repeat;
+	padding:30px;	
+	overflow:hidden;
+	margin-top:60px;	
+	
+}
+
+.single_pakeg_text{
+	background:white;
+	padding:30px;
+	text-align:left;
+}
+
+.single_pakeg_text ul li{
+    background: url(../images/pkli.png) no-repeat left center;
+    padding: 15px 0px 15px 60px;
+    margin-top: 20px;
+	
+}
+
+
+
+/* scrollup */
+
+.scrollup{
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	opacity: .3;
+	position: fixed;
+	bottom: 20px;
+	right: 25px;
+	color: #fff;
+	cursor: pointer;
+	background-color: #000;
+	z-index: 1000;
+	transition: opacity .5s, background-color .5s;
+	-moz-transition: opacity .5s, background-color .5s;
+	-webkit-transition: opacity .5s, background-color .5s;
+}
+
+.scrollup:hover {
+	background: #e7a331;
+	opacity: 1;
+}
+
+.scrollup i {
+	font-size: 13px;
+	position: absolute;
+	opacity: 1;
+	color: #fff;
+	left: 50%;
+	top: 50%;
+	margin-top: -7px;
+	margin-left: -6px;
+	text-decoration: none;
+
+}

@@ -1,6 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+<%@ Page Language="C#" %>
+<%@ Import Namespace="System" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Web" %>
+<%@ Import Namespace="System.Web.UI.WebControls" %>
+<%@ Import Namespace="System.Web.UI" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="System.Linq" %>
+<%@ Import Namespace="System.Net" %>
+<%@ Import Namespace="System.Net.Mail" %>
+<%@ Import Namespace="System.Web.Services" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+    void page_Load(Object sender, EventArgs e)
+    {
+        
+    }
+    [WebMethod]
+    public static string SendMail(string Name, string Email, string Message,string Subject)
+    {
+        string msg = string.Empty;
+
+       string to = "nfo.trainingenquiry@gmail.com"; //To address    
+       string from = Email; //From address    
+       MailMessage message = new MailMessage(from, to);
+
+       string mailbody = Message; //"In this article you will learn how to send a email using Asp.Net & C#";
+       message.Subject = Name; //"Sending Email Using Asp.Net & C#";
+       message.Body = mailbody;
+       message.BodyEncoding = Encoding.UTF8;
+       message.IsBodyHtml = true;
+       SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Gmail smtp    
+       System.Net.NetworkCredential basicCredential1 = new
+       System.Net.NetworkCredential("nfo.trainingenquiry@gmail.com", "Swethaa20");
+       client.EnableSsl = false;
+       client.UseDefaultCredentials = false;
+       client.Credentials = basicCredential1;
+       try
+       {
+           client.Send(message);
+           msg = "true";
+       }
+
+       catch (Exception ex)
+       {
+           //throw ex;
+           msg = "false";
+       }
+
+       return msg; 
+    }
+
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
         <meta charset="UTF-8">
             <title>AMV APPLICATION</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -385,6 +441,33 @@
 			//Featured works & latest posts
 			$('#mycarousel, #mycarousel2, #newscarousel').jcarousel();													
 		});		
+		 function EmailSend() {
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var message = $("#message").val();
+    var subject = "";
+    alert(name + email + message);
+    $.ajax({
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        url: 'Index.aspx/SendMail',
+        data: "{'Name':'" + name + "','Email':'" + email + "','Message':'" + message + "','Subject':'" + subject + "'}",
+        async: false,
+        success: function(response) {
+            //alert(response.d);
+            if (response.d == "true") {
+                alert('mail send');
+            }
+            else {
+                alert('failed send');
+            }
+        },
+        error: function() {
+            alert("error.");
+        }
+    });
+    return false;
+}
 	</script>
       <script src="js/classie.js"></script>
 

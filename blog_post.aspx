@@ -1,36 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+<%@ Page Language="C#" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
         <meta charset="UTF-8">
             <title>AMV Application</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="keywords" content="HTML,CSS,XML,JavaScript">
         <meta name="author" content="Mahesh">
-             <link rel="icon" href="img/fabicon.png">
-             <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-             <link rel="stylesheet" id="camera-css"  href="css/camera.css" type="text/css" media="all">
-             <link href="css/bootstrap.css" rel="stylesheet">
-             <link href="css/bootstrap-responsive.css" rel="stylesheet">
-             <link href="css/theme.css" rel="stylesheet">
-             <link rel="stylesheet"  href="css/component.css" />
-            <link rel="stylesheet"  href="css/animate.css" />
+                     <link rel="icon" href="img/fabicon.png">
+
+            
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" id="camera-css"  href="css/camera.css" type="text/css" media="all">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/theme.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/skins/tango/skin.css" />
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
              <link rel="stylesheet" href="css/style.css">
                      <link rel="stylesheet" href="css/style2.css">
 
-        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-
-        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
-
-
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href="assets/css/animate/animate.css" />
-
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="assets/css/style.css">
-
-
-        
     </head>
     
     
@@ -55,39 +52,38 @@
                             <nav id="main_menu">
                                 <div class="menu_wrap">
                                     <ul class="nav sf-menu">
-                                      <li class="sub-menucurrent"><a href="index.html">Home</a></li>
+                                      <li class="sub-menu"><a href="index.html">Home</a></li>
                                       <li class="sub-menu"><a href="javascript:{}">About Us</a>
                                         <ul>
                                               <li><a href="about.html"><span>-</span>About us</a></li>
                                               <li><a href="news.html"><span>-</span>News & Events</a></li>
                                               <li><a href="career.html"><span>-</span>Career</a></li>
-                                              <li><a href="gallery.html"><span>-</span>Gallery</a></li>
+                                               <li><a href="gallery.html"><span>-</span>Gallery</a></li>
 
-                                          </ul>  </li>
-                                      <li class="sub-menu current"><a href="javascript:{}">Solutions</a>
+                                          </ul>  
+                                      <li class="sub-menu"><a href="javascript:{}"> Solutions</a>
                                           <ul>
                                               <li><a href="cloud.html"><span>-</span>Cloud Service</a></li>
                                               <li><a href="Disaster.html"><span>-</span>Disaster Recovery Services</a></li>
-                                              <li class="current"><a href="Cloudsolution.html"><span>-</span>Cloud Solution Provider</a></li>
-                                              <li><a href="internet.html"><span>-</span>Internet of Things</a></li>    
-                                               <li><a href="amazon.html"><span>-</span>Amazon Services</a></li>                                          
+                                              <li><a href="Cloudsolution.html"><span>-</span>Cloud Solution Provider</a></li>
+                                              <li><a href="internet.html"><span>-</span>Internet of Things</a></li>       
+                                              <li><a href="amazon.html"><span>-</span>Amazon Services</a></li>                                          
 
                                           </ul>                                          
                                       </li>
                                            
-                                        <li class="sub-menu"><a href="javascript:{}">Mobile Apps</a>
+                                         <li class="sub-menu"><a href="javascript:{}">Mobile Apps</a>
                                           <ul>
                                               <li><a href="web.html"><span>-</span>Responsive Web Apps </a></li>
                                               <li><a href="mobile.html"><span>-</span>Mobile Application</a></li>
-                                                 <li><a href="IOS.html"><span>-</span>IOS Apps </a></li>
-                                  
+                                           <li><a href="IOS.html"><span>-</span>IOS Apps </a></li>
+                                 
                                           </ul>                                          
                                       </li> 
-                                        
-                                      <li class="sub-menu"><a href="javascript:{}">Blog</a>
+                                      <li class="sub-menu current"><a href="javascript:{}">Blog</a>
                                            <ul>
                                               <li><a href="blog.html"><span>-</span>Blog with right sidebar</a></li>
-                                              <li><a href="blog_post.html"><span>-</span>Blog post</a></li>                                      
+                                              <li class="current"><a href="blog_post.html"><span>-</span>Blog post</a></li>                                      
                                           </ul>
                                       </li>
                                       <li><a href="contacts.html">Contacts</a></li>
@@ -98,88 +94,105 @@
                     </div>                
                 </div>
              </div>
-        </div>    
+        </div> 
         
-        <!--banner-->
-<div class="banner">    	   
-    <img src="img/banner.jpg" alt="slide">
-    <div class="welcome-message">
-        <div class="wrap-info">
-            <div class="information">
-                     <p  class="animated fadeInDown">Most famous IT in Bangalore 
-</p>
-       </div> 
-        </div>
-        </div>
-    </div>
-        <!--//banner-->
         
-        <!--welcome-->
-          <!--Welcome-->
-          <!--Welcome-->
-        <div class="wrap block">
-            <div class="container welcome_block">
-            	<div class="welcome_line welcome_t"></div>
-            Who We Are<span>AMV Application Solution </span>
-                <div class="welcome_line welcome_b"></div>
-            </div>
-        </div>
-     
-     
-        <!--//welcome-->
         
-         <div class="wrap block">
-        	<div class="container">
-        		<div class="row news_block">
-        			<div class="span6">
-                    	<h2 class="title">Cloud Solutions!</h2>
-                        <p>Cloud computing is an information technology (IT) paradigm that enables ubiquitous access to shared pools of configurable system resources and higher-level services that can be rapidly provisioned with minimal management effort, often over the Internet. Cloud computing relies on sharing of resources to achieve coherence and economies of scale, similar to a public utility.
 
-                         </p><br>
-                        <ul class="the-icons grey">
-                        	<li><i class="icon-time"></i> 24x7x365 availability of tech and support to manage your services.</li>
-                            <li><i class="icon-star"></i> This paper aims to present a survey in cloud computing, which gives solutions for challenges faced by cloud!</li>
-                            <li><i class="icon-star"></i>We cater to different industries and organisations of all sizes.</li>
-                            <li><i class="icon-camera"></i>High security standards by routinely performed system maintenance and updates.</li>
-                            <li><i class="icon-qrcode"></i>Periodic system updates for state-of-the art setups.</li>
-                            <li><i class="icon-user"></i>Optimized performance by highly trained specialists.</li>
-                            <li><i class="icon-qrcode"></i> Strict documentation of all activities.</li>
-                            <li><i class="icon-qrcode"></i>Monitoring & recording of all critical services.</li>
-                            <li><i class="icon-qrcode"></i>Freedom to concentrate on your core business.</li>
-            <li><i class="icon-qrcode"></i>To make the best out of it, you should take a strategic iterative approach to implementation, explore hybrid cloud solutions.</li>
-                        </ul>     <br>
-                        <p>Third-party clouds enable organizations to focus on their core businesses instead of expending resources on computer infrastructure and maintenance.Advocates note that cloud computing allows companies to avoid or minimize up-front IT infrastructure costs. Proponents also claim that cloud computing allows enterprises to get their applications up and running faster, with improved manageability and less maintenance, and that it enables IT teams to more rapidly adjust resources to meet fluctuating and unpredictable demand.Cloud providers typically use a "pay-as-you-go" model, which can lead to unexpected operating expenses if administrators are not familiarized with cloud-pricing models.</p>
-                        </div>   	
-                    
-                    
-            	   <div class="span6">
-                  <h2 class="title">Contact!</h2>
-                        <p>we here to help you.</p>
-                       <h2 class="title"><span>Get In Touch</span></h2>
-                            <div class="contact_form">  
-                            	<div id="note"></div>
-                                <div id="fields">
-                                    <form id="ajax-contact-form" action="">
-                                        <input class="span7" type="text" name="Name*" value="" placeholder="Name*(required)" />
-                                        <input class="span7" type="text" name="Business Email*" value="" placeholder="EBusiness Email*(required)" />
-                                        <input class="span7" type="text" name="Organization*" value="" placeholder="Organization*" />
-                                         <input class="span7" type="text" name="Phone Number*" value="" placeholder="Phone Number*" />
-                                         <input class="span7" type="text" name="Subject*" value="" placeholder="Subject*" />
-                                        <div class="clear"></div>
-                                        <input type="submit" class="btn send_btn" value="SEND ENQUERY" />
-                                        <div class="clear"></div>
-                                    </form>
-                                </div>
-                            </div>      </div>  	
-                        </div>
-            </div>
-       </div>
-             
 
-      <br><br><br><br><br><br>  
-        <!--footer-->
+    <!--//header-->
+        
+    <!--page_container-->
    
-    <div id="footer">
+        
+    <div class="page_container">
+    	<div class="breadcrumb">
+        	<div class="wrap">
+            	<div class="container">
+                    <a href="index.html">BLOG POST</a>
+                </div>
+            </div>
+        </div>
+    	<div class="wrap">
+        	<div class="container">
+                <section>
+                	<div class="row pad5">
+                    	<div class="span8">
+                        	<div class="post">
+                            	<img src="img/blog/1.PNG" alt="" />
+                                <div class="post_info">
+                                	<div class="fleft">On 12 march 2018</span> / By <a href="#"> A.Mahesh Kumar</a></div>
+                                    <div class="fright"><a href="#">25</a> Comments</div>                                    
+                                	<div class="clear"></div>
+                                </div>
+                               <p>AMV appilication solution,its professional IT company.The Android SDK tools compile your code along with any data and resource files into an APK, an Android package, which is an archive file with an .apk suffix. One APK file contains all the contents of an Android app and is the file that Android-powered devices use to install the app..</p> 
+                                <ul class="links">
+                                    <li><a href="#">Download Android Studio. To program in most languages, you need a piece of software called an IDE or 'Integrated Development Environment'. ...</a></li>
+                                    <li><a href="#">Open a New Project.</a></li>
+                                    <li><a href="#">Edit the Welcome Message in the Main Activity. .</a></li>
+                                    <li><a href="#">Add a Button to the Main Activity. .</a></li>
+                                    <li><a href="#">Create a Second Activity..</a></li>
+                                     <li><a href="#">Write the Button's "onClick" Method. .</a></li>
+                                    <li><a href="#">Test the Application. </a></li>
+                                    <li><a href="#">Up, Up, and Away!</a></li>
+
+                                </ul>
+                                
+                                <p>Creating your own Mobile App with the Infinite Monkeys App Maker is super-easy. The entire site is drag-and-drop. You just pick what you want included your app, and then drag it in. However you define "community" we can help you connect with the people who are important to you..
+                                </p>
+                            </div>
+                           
+                            <!-- Comments -->
+                               
+                            <!-- //Comments -->
+                            
+                            <!-- Leave a Comment -->
+                            <h4>Leave a comment</h4>
+                            <form action="#" method="post">
+                                <input class="span5" type="text" name="name" value="Name" onFocus="if (this.value == 'Name') this.value = '';" onBlur="if (this.value == '') this.value = 'Name';" />
+                                <input class="span5" type="text" name="mail" value="Email" onFocus="if (this.value == 'Email') this.value = '';" onBlur="if (this.value == '') this.value = 'Email';" />
+                                <textarea name="message" class="span7" onFocus="if (this.value == 'Message...') this.value = '';" onBlur="if (this.value == '') this.value = 'Message...';" >Message...</textarea>
+                                <div class="clear"></div>
+                                <input type="reset" class="btn dark_btn" value="Clear form" />
+                                <input type="submit" class="btn send_btn" value="Post Comment" />
+                                <div class="clear"></div>
+                            </form>
+                            <!-- //Leave a Comment -->
+                           
+                        </div>
+                    	<div class="span4">
+                        	<div class="sidebar" style="padding-top:4px;">
+                            	<div class="widget">
+                                	<form class="form-search">
+                                        <input type="text" class="input-medium search-query">
+                                        <button type="submit" class="btn dark_btn">Search</button>
+                                     </form>
+                                </div>
+                               
+                                <div class="widget">
+                                	<h2 class="title"><span>links</span></h2>
+                                	<ul class="links">
+                                    	<li><a href="android.html">Android Trainning Market Post</a></li> 
+                                        <li><a href="clooud.html">Cloud Developments </a></li>
+                                        <li><a href="android.html">Android DevelopmentS & Mobile Developments.</a></li>
+                                        <li><a href="clooud.html">Cloud Developments</a></li>
+                                        <li><a href="android.html">Android DevelopmentS & Mobile Developments.</a></li>
+                                        <li><a href="clooud.html">salesforce Developments</a></li>
+                                        <li><a href="android.html">Android DevelopmentS & Mobile Developments</a></li>
+                                        <li><a href="clooud.html">salesforce Developments</a></li>
+                                    </ul>  
+                                	<p><a href="index.html" class="arrow_link">Go to the Home page</a></p>
+                                </div>
+                                                        
+                            </div>                             
+                    </div></section>
+        
+            </div></div></div>
+        
+    <!--//page_container-->
+    
+    <!--footer-->
+<div id="footer">
     	<div class="wrap">
     		<div class="container">
             	<div class="row">
@@ -210,7 +223,7 @@
                             	<div class="clear"></div>
                                 <div class="author">Swetha G, Technical Lead.</div>
                             </li>
-                        </ul>                      
+                        </ul>                     
                     </div>
                     <div class="span3">
                     	<h2 class="title">flickr photos</h2>
@@ -251,7 +264,7 @@
                 	<div class="row">
                 		<div class="span5">
                         	<div class="foot_logo"><a href="index.html"><img src="" alt="" /></a></div>    
-                        	<div class="copyright">&copy;2017 AMV Application, Professional IT Company</div>                        
+                        	<div class="copyright">&copy;2017 AMV Application , Professional IT Company</div>                        
                         </div>
                         <div class="span7">
                         	<div class="foot_right_block">
@@ -280,15 +293,8 @@
             </div>
         </div>
     
-      
-        <!--footer-->
-        
-        
-
-
-
-		
-		<div class="scrollup">
+    <!--//footer-->    
+<div class="scrollup">
 			<a href="#"><i class="fa fa-chevron-up"></i></a>
 		</div>		
 
@@ -302,28 +308,63 @@
     <script src="js/modernizr.custom.js"></script>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="js/google-code-prettify/prettify.js"></script>
     <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
-    <script type="text/javascript" src="js/camera.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/superfish.js"></script>
-    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
     <script type="text/javascript" src="js/jquery.tweet.js"></script>
+    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
     <script type="text/javascript" src="js/myscript.js"></script>
+    <script src="js/application.js"></script>
     <script type="text/javascript">
 		$(document).ready(function(){	
-			//Slider
-			$('#camera_wrap_1').camera();
-			
-			//Featured works & latest posts
-			$('#mycarousel, #mycarousel2, #newscarousel').jcarousel();													
+			$("#ajax-contact-form").submit(function() {
+				var str = $(this).serialize();		
+				$.ajax({
+					type: "POST",
+					url: "contact_form/contact_process.php",
+					data: str,
+					success: function(msg) {
+						// Message Sent - Show the 'Thank You' message and hide the form
+						if(msg == 'OK') {
+							result = '<div class="notification_ok">Your message has been sent. Thank you!</div>';
+							$("#fields").hide();
+						} else {
+							result = msg;
+						}
+						$('#note').html(result);
+					}
+				});
+				return false;
+			});															
 		});		
-	</script>
-      <script src="js/classie.js"></script>
-
-    <script src="js/thumbnailGridEffects.js"></script>
-
-
-    </body>
-
+            function EmailSend() {
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var message = $("#message").val();
+    var subject = "";
+    alert(name + email + message);
+    $.ajax({
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        url: 'Index.aspx/SendMail',
+        data: "{'Name':'" + name + "','Email':'" + email + "','Message':'" + message + "','Subject':'" + subject + "'}",
+        async: false,
+        success: function(response) {
+            //alert(response.d);
+            if (response.d == "true") {
+                alert('mail send');
+            }
+            else {
+                alert('failed send');
+            }
+        },
+        error: function() {
+            alert("error.");
+        }
+    });
+    return false;
+}
+        </script></body>
 </html>
+

@@ -1,42 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+<%@ Page Language="C#" %>
+<%@ Import Namespace="System" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Web" %>
+<%@ Import Namespace="System.Web.UI.WebControls" %>
+<%@ Import Namespace="System.Web.UI" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="System.Linq" %>
+<%@ Import Namespace="System.Net" %>
+<%@ Import Namespace="System.Net.Mail" %>
+<%@ Import Namespace="System.Web.Services" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+    void page_Load(Object sender, EventArgs e)
+    {
+        
+    }
+    [WebMethod]
+    public static string SendMail(string Name, string Email, string Message,string Subject)
+    {
+        string msg = string.Empty;
+
+       string to = "nfo.trainingenquiry@gmail.com"; //To address    
+       string from = Email; //From address    
+       MailMessage message = new MailMessage(from, to);
+
+       string mailbody = Message; //"In this article you will learn how to send a email using Asp.Net & C#";
+       message.Subject = Name; //"Sending Email Using Asp.Net & C#";
+       message.Body = mailbody;
+       message.BodyEncoding = Encoding.UTF8;
+       message.IsBodyHtml = true;
+       SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Gmail smtp    
+       System.Net.NetworkCredential basicCredential1 = new
+       System.Net.NetworkCredential("nfo.trainingenquiry@gmail.com", "Swethaa20");
+       client.EnableSsl = false;
+       client.UseDefaultCredentials = false;
+       client.Credentials = basicCredential1;
+       try
+       {
+           client.Send(message);
+           msg = "true";
+       }
+
+       catch (Exception ex)
+       {
+           //throw ex;
+           msg = "false";
+       }
+
+       return msg; 
+    }
+
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
         <meta charset="UTF-8">
-            <title>AMV APPLICATION</title>
+            <title>AMV Application</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="keywords" content="HTML,CSS,XML,JavaScript">
         <meta name="author" content="Mahesh">
-             <link rel="icon" href="img/fabicon.png">
-             <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-             <link rel="stylesheet" id="camera-css"  href="css/camera.css" type="text/css" media="all">
-             <link href="css/bootstrap.css" rel="stylesheet">
-             <link href="css/bootstrap-responsive.css" rel="stylesheet">
-             <link href="css/theme.css" rel="stylesheet">
-             <link rel="stylesheet"  href="css/component.css" />
-            <link rel="stylesheet"  href="css/animate.css" />
+                     <link rel="icon" href="img/fabicon.png">
+
+            
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" id="camera-css"  href="css/camera.css" type="text/css" media="all">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/theme.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/skins/tango/skin.css" />
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
              <link rel="stylesheet" href="css/style.css">
                      <link rel="stylesheet" href="css/style2.css">
 
-        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-
-        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
-
-
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href="assets/css/animate/animate.css" />
-
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="assets/css/style.css">
-
-
-        
     </head>
     
-    <body>
     
-        
-         <div class="header">
+    <body>
+        <div class="header">
     	<div class="wrap">
         	<div class="navbar navbar_ clearfix">
             	<div class="container">
@@ -56,22 +101,22 @@
                             <nav id="main_menu">
                                 <div class="menu_wrap">
                                     <ul class="nav sf-menu">
-                                      <li class="sub-menucurrent"><a href="index.html">Home</a></li>
-                                      <li class="sub-menu current"><a href="javascript:{}">About Us</a>
+                                      <li class="sub-menu"><a href="index.html">Home</a></li>
+                                      <li class="sub-menu"><a href="javascript:{}">About Us</a>
                                         <ul>
                                               <li><a href="about.html"><span>-</span>About us</a></li>
                                               <li><a href="news.html"><span>-</span>News & Events</a></li>
-                                              <li class="sub-menu current"><a href="career.html"><span>-</span>Career</a></li>
-                                           <li><a href="gallery.html"><span>-</span>Gallery</a></li>
+                                              <li><a href="career.html"><span>-</span>Career</a></li>
+                                             <li><a href="gallery.html"><span>-</span>Gallery</a></li>
 
-                                          </ul>  
-                                      <li class="sub-menu"><a href="javascript:{}"> Solutions</a>
+                                          </ul>  </li>
+                                      <li class="sub-menu current"><a href="javascript:{}">Solutions</a>
                                           <ul>
                                               <li><a href="cloud.html"><span>-</span>Cloud Service</a></li>
                                               <li><a href="Disaster.html"><span>-</span>Disaster Recovery Services</a></li>
                                               <li><a href="Cloudsolution.html"><span>-</span>Cloud Solution Provider</a></li>
-                                              <li><a href="internet.html"><span>-</span>Internet of Things</a></li>  
-                                               <li><a href="amazon.html"><span>-</span>Amazon Services</a></li>                                          
+                                              <li class="current"><a href="internet.html"><span>-</span>Internet of Things</a></li>      
+                                             <li><a href="amazon.html"><span>-</span>Amazon Services</a></li>                                          
 
                                           </ul>                                          
                                       </li>
@@ -80,9 +125,10 @@
                                               <li><a href="web.html"><span>-</span>Responsive Web Apps </a></li>
                                               <li><a href="mobile.html"><span>-</span>Mobile Application</a></li>
                                               <li><a href="IOS.html"><span>-</span>IOS Apps </a></li>
-                               
+                                   
                                           </ul>                                          
                                       </li> 
+                                        
                                         
                                       <li class="sub-menu"><a href="javascript:{}">Blog</a>
                                            <ul>
@@ -102,43 +148,33 @@
         
         <!--banner-->
 <div class="banner">    	   
-    <img src="img/hg.jpg" alt="slide">
+    <img src="img/fliker31.jpg" alt="slide">
     <div class="welcome-message">
         <div class="wrap-info">
             <div class="information">
                     
-                
         </div> 
         </div>
         </div>
     </div>
-        <!--//banner-->
+                       
         
-        <!--welcome-->
         
+        <!--Welcome-->
         <div class="wrap block">
             <div class="container welcome_block">
             	<div class="welcome_line welcome_t"></div>
-            Carrer<span>AMV Application Solution </span>
+            	Internet of Things<span>AMV APPLICTION SOLUTION!</span>
                 <div class="welcome_line welcome_b"></div>
             </div>
         </div>
-     
-     
-        <!--//welcome-->
-        
-        
-             
-        
+        <!--//Welcome-->         
         
          <div class="wrap block">
         	<div class="container">
         		<div class="row news_block">
         			<div class="span6">
-                      <img src="img/xc.jpg" class="img-responsive"> </div>  	
-    
-                    <div class="span6">
-                    		<h2 class="title">News & Events!</h2>
+                    	<h2 class="title">News & Events!</h2>
                         <p>AMV APPLICTION SOLUTION,Android Developer, here you come. But some of you may need more convincing when it comes to considering a career in Android Development. So let's look at some key labor statistics and industry reports: A recent article in InformationWeek projected salary increases of nearly 9% for Mobile App Developers in 2016..</p>
                         <ul class="the-icons grey">
                         	<li><i class="icon-time"></i> Deep dive into the mobile application developer career path.</li>
@@ -146,24 +182,39 @@
                             <li><i class="icon-camera"></i> Research mobile developer career education requirements..</li>
                             <li><i class="icon-qrcode"></i>Find mobile app development training courses and degrees.</li>
                         </ul>
-                        <p>Mobile App Developer. Android Developer. Mobile Lead Software Engineer. Mobile Developer. Android Mobile Developer. Mobile Embedded Software Engineer. </p>
-                    </div>       		
-            	</div>
-        	</div>
+                        <p>Mobile App Developer. Android Developer. Mobile Lead Software Engineer. Mobile Developer. Android Mobile Developer. Mobile Embedded Software Engineer.</p></div>   	
+                    
+                    
+            	   <div class="span6">
+              <iframe id="player" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media" title="YouTube video player" width="100%" height="370" src="https://www.youtube.com/embed/uEsKZGOxNKw?enablejsapi=1&amp;origin=http%3A%2F%2Fwww.sysfore.com&amp;widgetid=1" data-gtm-yt-inspected-936209_106="true"></iframe>
+                    </div>  	
+                     </div>
+        
+             </div>          
         </div>
-        <!--Latest news-->
+             
+             
+      
         
-        <!--latest posts-->
-        
-        
-        
-         <div class="wrap block">
+        <div class="wrap block">
         	<div class="container">
         		<div class="row news_block">
         			<div class="span6">
+                    	<h2 class="title">News OF Salesforce!</h2>
+                        <p>Salesforce helps companies connect with their customers in a whole new way. We are blazing new trails in enterprise software every day while focusing on our mission of improving the state of the world.steps are:</p>
+                        <ul class="the-icons grey">
+                        	<li><i class="icon-time"></i> Plan your integration. .</li>
+                            <li><i class="icon-star"></i> Educate your team!</li>
+                            <li><i class="icon-camera"></i> Prep your data..</li>
+                            <li><i class="icon-qrcode"></i>Transfer your data.  </li>
+                            <li><i class="icon-user"></i> Track your progress.& Iterate, update and communicate. ...</li>
+                        </ul>
+                       <p>Life at Salesforce centers around our Ohana values: Trust, Growth, Innovation, Equality, Customer Success, Transparency, Giving Back, Wellbeing, and Fun. These values make us uniquely Salesforce.Unparalleled Rewards. Members of our Ohana enjoy great pay and perks, but they also value the opportunity to learn from some of the most passionate and driven people in the industry, grow their career with us, and give back. OUR REWARDS ...</p> 
+                    </div> 
+                    <div class="span6">
                     	<h2 class="title">Latest news</h2>
                         <ul id="newscarousel" class="jcarousel-skin-tango">
-                            <li>
+                             <li>
                             	<div class="news_date">19 july<span>2016</span></div>
                                 <div class="news_t"><a href="#">AMV APPLICTION SOLUTION!</a></div>
                                 <div class="news">Posted by <a href="#">Mahesh Kumar A</a>  /  In <a href="#">City</a><br/></div>
@@ -180,98 +231,83 @@
                             <li>
                             	<div class="news_date">14 february<span>2016</span></div>
                                 <div class="news_t"><a href="#">AMV APPLICTION SOLUTION!</a></div>
-                                <div class="news">Posted by <a href="#">Kantamani</a>  /  In <a href="#">City</a><br/></div>
+                                <div class="news">Posted by <a href="#">Shruti Sharat</a>  /  In <a href="#">City</a><br/></div>
                                 <div class="news_info"> the right career path that you should opt for. But one field that witnesses continuous growth and popularity is Android app development. With over 5 billion smartphones users worldwide, mobile phones have become ubiquitous today.. <a href="#">Read more...</a></div>
                                 <div class="clear"></div>
                             </li>
                             <li>
                             	<div class="news_date">17 march<span>2017</span></div>
                                 <div class="news_t"><a href="#">AMV APPLICTION SOLUTION!</a></div>
-                                <div class="news">Posted by <a href="#">Navya Reddy</a>  /  In <a href="#">City</a><br/></div>
+                                <div class="news">Posted by <a href="#">Sylvia Samaddar</a>  /  In <a href="#">City</a><br/></div>
                                 <div class="news_info">eventually got around to revising and passing it. This certification has come about for a very good reason, mainly to replace the old DEV401 (Certified Developer) and to split up declarative and programmatic customisations. The old DEV401 certification was just about declarative customisations to force.com, that is the point and click way of doing things. This was a bit confusing for employers and users, as you could essentially call yourself a Salesforce Developer, even though you were not a developer in the classic sense. . <a href="#">Read more...</a></div>
                                 <div class="clear"></div>
                             </li>
                          </ul> 
                     </div>       		
-            	   <div class="span6">
-                  <img src="img/u.jpg" class="img-responsive"> </div>  	
+            	</div>
+        	</div>
         </div>
         
-             </div></div>  
         
         
-         
         
-             <!--Welcome-->
-        <div class="wrap block">
-            <div class="container welcome_block">
-            	<div class="welcome_line welcome_t"></div>
-            Carrer<span>AMV Application Solution</span>
-                <div class="welcome_line welcome_b"></div>
+        
+        <!--featured works-->
+        <div class="wrap block carousel_block">
+            <div class="container">
+                <h2 class="upper"><b>Our Customers</b></h2>
+            	<div class="row">
+                    <div class="span12">
+                        <ul id="mycarousel" class="jcarousel-skin-tango">
+                            <li>
+                            	<div class="hover_img">
+                                	<a href="img/featured_works/1.jpg" rel="prettyPhoto[portfolio1]"><img src="img/featured_works/5.jpg" alt="" /><span class="portfolio_zoom1"></span></a>                                    
+                                </div>
+                            </li>
+                            <li>
+                            	<div class="hover_img">
+                                	<a href="img/featured_works/2.jpg" rel="prettyPhoto[portfolio1]"><img src="img/featured_works/10.jpg" alt="" /><span class="portfolio_zoom1"></span></a>                                    
+                                </div>
+                            </li>
+                            <li>
+                                <div class="hover_img">
+                                	<a href="img/featured_works/3.jpg" rel="prettyPhoto[portfolio1]"><img src="img/featured_works/8.jpg" alt="" /><span class="portfolio_zoom1"></span></a>                                    
+                                </div>
+                            </li> 
+                            <li>
+                                <div class="hover_img">
+                                	<a href="img/featured_works/4.jpg" rel="prettyPhoto[portfolio1]"><img src="img/featured_works/9.jpg" alt="" /><span class="portfolio_zoom1"></span></a>                                    
+                                </div>
+                            </li>
+                            <li>
+                            	<div class="hover_img">
+                                	<a href="img/featured_works/1.jpg" rel="prettyPhoto[portfolio1]"><img src="img/featured_works/6.jpg" alt="" /><span class="portfolio_zoom1"></span></a>                                    
+                                </div>
+                            </li>
+                            <li>
+                            	<div class="hover_img">
+                                	<a href="img/featured_works/2.jpg" rel="prettyPhoto[portfolio1]"><img src="img/featured_works/11.jpg" alt="" /><span class="portfolio_zoom1"></span></a>                                    
+                                </div>
+                            </li>  
+                            <li>
+                            	<div class="hover_img">
+                                	<a href="img/featured_works/2.jpg" rel="prettyPhoto[portfolio1]"><img src="img/featured_works/12.jpg" alt="" /><span class="portfolio_zoom1"></span></a>                                    
+                                </div>
+                            </li>     
+                            <li>
+                            	<div class="hover_img">
+                                	<a href="img/featured_works/2.jpg" rel="prettyPhoto[portfolio1]"><img src="img/featured_works/2.jpg" alt="" /><span class="portfolio_zoom1"></span></a>                                    
+                                </div>
+                            </li>     
+                        </ul>                         
+                    </div>                
+                </div>                
             </div>
-        </div>
-     
-          <div class="wrap block">
-        	<div class="container">
-        		<div class="row news_block">
-        			<div class="span6">
-                    	<h2 class="title">News OF Android!</h2>
-                        <p>AMV APPLICTION SOLUTION,t turns out, the Galaxy S9 Plus costs a little more than the Galaxy Note 8 to manufacture, but less than the iPhone X.</p>
-                        <ul class="the-icons grey">
-                        	<li><i class="icon-time"></i> Tech Insights has created a table comparing the costs of goods for Samsung’s flagship devices with Apple’s.</li>
-                            <li><i class="icon-star"></i> While the iPhone X has the highest cost of goods, the Galaxy S9 Plus is a close second.!</li>
-                            <li><i class="icon-camera"></i>The Galaxy S9 Plus’ camera sensors and RAM memory saw the biggest increase compared to last year.</li>
-                            
-                        </ul>
-                        <p>Google has been talking a lot more about security lately, and that’s no surprise. Google’s newfound focus on hardening the platform traces back to a series of security scares in past years, most notably Stagefright in 2015. That breach resulted in a wave of security patches for phones and changes to the Android code base. In the wake of Stagefright, Google required all device makers to display the security patch level of a phone in its settings. It also began issuing security bulletins detailing all the issues included in its new monthly patches.
-                    </div>       		
-            	   <div class="span6">
-                 <h2 class="title">News OF Android!</h2>
-                        <p>Android has a reputation for being less secure than Apple’s iOS, but Google says its platform has gotten a bad rap. The company has released its fourth annual security report, a 56-page document that details everything Google has done to keep Android users safe. The bottom line, according to Android security head David Kleidermacher, is that Android is actually just as hard to hack as the locked down iOS platform.</p>
-                      
-                        <p>Last year, it unveiled Google Play Protect, which was a rebranding of the old Verify Apps system. This was more about perception — it wants users to know Google is on the lookout for bad apps. According to the newly released report, Google’s machine learning tools spotted 60.3 percent of all potentially harmful apps in the Play Store. The remainder were discovered by other means. Google expects machine learning to play an even more prominent role in the future.<div>  	
-        </div>
-        
-             </div>
-        
-        
-        <div class="container">
-        		<div class="row news_block">
-        			<div class="span6">
-                    	<h2 class="title">News OF Salesforce!</h2>
-                        <p>Salesforce helps companies connect with their customers in a whole new way. We are blazing new trails in enterprise software every day while focusing on our mission of improving the state of the world.steps are:</p>
-                        <ul class="the-icons grey">
-                        	<li><i class="icon-time"></i> Plan your integration. .</li>
-                            <li><i class="icon-star"></i> Educate your team!</li>
-                            <li><i class="icon-camera"></i> Prep your data..</li>
-                            <li><i class="icon-qrcode"></i>Transfer your data.  </li>
-                            <li><i class="icon-user"></i> Track your progress.& Iterate, update and communicate. ...</li>
-                        </ul>
-                        <p>Life at Salesforce centers around our Ohana values: Trust, Growth, Innovation, Equality, Customer Success, Transparency, Giving Back, Wellbeing, and Fun. These values make us uniquely Salesforce.Unparalleled Rewards. Members of our Ohana enjoy great pay and perks, but they also value the opportunity to learn from some of the most passionate and driven people in the industry, grow their career with us, and give back. OUR REWARDS ...
-                    </div>       		
-            	   <div class="span6">
-                 <h2 class="title">News Of Cloud!</h2>
-                        <p>As grand and innovative and effective as a new software might be (ahem, Salesforce), the integration process can often be draining - usually because implementation was an afterthought. Don’t let this happen at your company! Here are six steps to make your Salesforce implementation pain-free AND successful. (Check out the handy checklist at the bottom of this post,feachers of cloud:</p>
-                        <ul class="the-icons grey">
-                        	<li><i class="icon-time"></i> Communities for sales.</li>
-                            <li><i class="icon-star"></i> Marketing and sales leads.!</li>
-                            <li><i class="icon-camera"></i> Email integration.</li>
-                            <li><i class="icon-qrcode"></i>Opportunities and quotes. </li>
-                            <li><i class="icon-user"></i> Build and run innovative apps.</li>
-                              <li><i class="icon-user"></i>Forecasting.</li>
-                            <li><i class="icon-user"></i> Engage customers everywhere..</li>
-
-                        </ul>
-                        <p>Salesforce.com is the #1 CRM Choice for 100K+ Companies! See Demo.
-37% Increase in Revenue · 37% Increase in Win Rate · +40% Sales Productivity
-Types: Service Cloud, Sales Cloud, Marketing Cloud, Small Business CRM </div>  	
-            </div></div></div></div></div>
-        
-        
-
-    <!--//page_container-->
-        
-        
+        </div>        
+        <!--//featured works-->
+       
+    
+  
       <br><br><br><br><br><br>  
         <!--footer-->
    
@@ -295,7 +331,7 @@ Types: Service Cloud, Sales Cloud, Marketing Cloud, Small Business CRM </div>
                     </div> 
                     <div class="span3">
                     	<h2 class="title">Testimonials</h2>
-                         <ul>
+                          <ul>
                         	<li>
                             	<span class="testimonials_arrow"></span>AMV Aplication is the greatest company , done their work properly in time to time.so its best to do work here or best to give project here.
                             	<div class="clear"></div>
@@ -306,7 +342,7 @@ Types: Service Cloud, Sales Cloud, Marketing Cloud, Small Business CRM </div>
                             	<div class="clear"></div>
                                 <div class="author">Swetha G, Technical Lead.</div>
                             </li>
-                        </ul>                    
+                        </ul>                        
                     </div>
                     <div class="span3">
                     	<h2 class="title">flickr photos</h2>
@@ -382,27 +418,19 @@ Types: Service Cloud, Sales Cloud, Marketing Cloud, Small Business CRM </div>
         
 
 
-        
-        
-        
-        
-        
-        
-        
-    
-    	<div class="scrollup">
+
+		
+		<div class="scrollup">
 			<a href="#"><i class="fa fa-chevron-up"></i></a>
-		</div>		
-
-
-        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+		</div>	
+           <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
         <script src="assets/js/vendor/bootstrap.min.js"></script>
 
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
         
     <script src="js/modernizr.custom.js"></script>
-
+   
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
@@ -410,6 +438,7 @@ Types: Service Cloud, Sales Cloud, Marketing Cloud, Small Business CRM </div>
     <script src="js/bootstrap.js"></script>
     <script src="js/superfish.js"></script>
     <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
     <script type="text/javascript" src="js/jquery.tweet.js"></script>
     <script type="text/javascript" src="js/myscript.js"></script>
     <script type="text/javascript">
@@ -420,12 +449,35 @@ Types: Service Cloud, Sales Cloud, Marketing Cloud, Small Business CRM </div>
 			//Featured works & latest posts
 			$('#mycarousel, #mycarousel2, #newscarousel').jcarousel();													
 		});		
+		 function EmailSend() {
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var message = $("#message").val();
+    var subject = "";
+    alert(name + email + message);
+    $.ajax({
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        url: 'Index.aspx/SendMail',
+        data: "{'Name':'" + name + "','Email':'" + email + "','Message':'" + message + "','Subject':'" + subject + "'}",
+        async: false,
+        success: function(response) {
+            //alert(response.d);
+            if (response.d == "true") {
+                alert('mail send');
+            }
+            else {
+                alert('failed send');
+            }
+        },
+        error: function() {
+            alert("error.");
+        }
+    });
+    return false;
+}
 	</script>
-      <script src="js/classie.js"></script>
 
-    <script src="js/thumbnailGridEffects.js"></script>
-
-
-    </body>
-
+</body>
 </html>
+

@@ -1,6 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+<%@ Page Language="C#" %>
+<%@ Import Namespace="System" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Web" %>
+<%@ Import Namespace="System.Web.UI.WebControls" %>
+<%@ Import Namespace="System.Web.UI" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="System.Linq" %>
+<%@ Import Namespace="System.Net" %>
+<%@ Import Namespace="System.Net.Mail" %>
+<%@ Import Namespace="System.Web.Services" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+    void page_Load(Object sender, EventArgs e)
+    {
+        
+    }
+    [WebMethod]
+    public static string SendMail(string Name, string Email, string Message,string Subject)
+    {
+        string msg = string.Empty;
+
+       string to = "nfo.trainingenquiry@gmail.com"; //To address    
+       string from = Email; //From address    
+       MailMessage message = new MailMessage(from, to);
+
+       string mailbody = Message; //"In this article you will learn how to send a email using Asp.Net & C#";
+       message.Subject = Name; //"Sending Email Using Asp.Net & C#";
+       message.Body = mailbody;
+       message.BodyEncoding = Encoding.UTF8;
+       message.IsBodyHtml = true;
+       SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Gmail smtp    
+       System.Net.NetworkCredential basicCredential1 = new
+       System.Net.NetworkCredential("nfo.trainingenquiry@gmail.com", "Swethaa20");
+       client.EnableSsl = false;
+       client.UseDefaultCredentials = false;
+       client.Credentials = basicCredential1;
+       try
+       {
+           client.Send(message);
+           msg = "true";
+       }
+
+       catch (Exception ex)
+       {
+           //throw ex;
+           msg = "false";
+       }
+
+       return msg; 
+    }
+
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
         <meta charset="UTF-8">
             <title>AMV APPLICATION</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,8 +135,8 @@
                                           <li class="sub-menu current"><a href="javascript:{}">Mobile Apps</a>
                                           <ul>
                                               <li><a href="web.html"><span>-</span>Responsive Web Apps </a></li>
-                                              <li class="sub-menu current"><a href="mobile.html"><span>-</span>Mobile Application</a></li>
-                                             <li><a href="IOS.html"><span>-</span>IOS Apps </a></li>
+                                              <li><a href="mobile.html"><span>-</span>Mobile Application</a></li>
+                                             <li class="sub-menu current"><a href="IOS.html"><span>-</span>IOS Apps </a></li>
                                
                                           </ul>                                          
                                       </li>
@@ -103,7 +159,7 @@
         
         <!--banner-->
 <div class="banner">    	   
-    <img src="img/mob.jpg" alt="slide">
+    <img src="img/Y.jpg" alt="slide">
     <div class="welcome-message">
         <div class="wrap-info">
             <div class="information">
@@ -136,10 +192,10 @@
         	<div class="container">
         		<div class="row news_block">
         			<div class="span6">
-                      <img src="img/ile.jpg" class="img-responsive"> </div>  	
+                      <img src="img/ws.jpg" class="img-responsive"> </div>  	
     
                     <div class="span6">
-                    		<h2 class="title">Mobile App Responsive!</h2>
+                    		<h2 class="title"> IOS Mobile App Responsive!</h2>
                         <p>AMV APPLICTION SOLUTION,Apps that are not preinstalled are usually available through distribution platforms called app stores. They began appearing in 2008 and are typically operated by the owner of the mobile operating system, such as the Apple App Store, Google Play, Windows Phone Store, and BlackBerry App World..feachers.</p>
                         <ul class="the-icons grey">
                         	<li><i class="icon-time"></i> The fluid grid concept calls for page element sizing to be in relative units like percentages, rather than absolute units like pixels or points.</li>
@@ -147,7 +203,7 @@
                             <li><i class="icon-camera"></i> Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, most commonly the width of the browser.</li>
                             <li><i class="icon-qrcode"></i>Find mobile app development training courses and degrees.</li>
                         </ul>
-                        <p>Apps that are not preinstalled are usually available through distribution platforms called app stores. They began appearing in 2008 and are typically operated by the owner of the mobile operating system, such as the Apple App Store, Google Play, Windows Phone Store, and BlackBerry App World... </p>
+                        <p>IOS Apps that are not preinstalled are usually available through distribution platforms called app stores. They began appearing in 2008 and are typically operated by the owner of the mobile operating system, such as the Apple App Store, Google Play, Windows Phone Store, and BlackBerry App World... </p>
                     </div>       		
             	</div>
         	</div>
@@ -160,21 +216,21 @@
                     <h2 class="title">Apps Responsive!</h2>
                         <p>Clash of Clans Hack Gems app for free. Clash of Clans Hack Gems Free. Clash of Clans Hack Gems · GTA 5 apk Android app for free. GTA 5 apk Android Free. GTA V (Grand Theft Auto 5) is a part of world famous GTA game series · Fortnite app for free. Fortnite Free. Play Fortnite on your mobile! Mobile Legends Hack ..feachers:</p>
                         
-                        <p>This official Moodle Mobile app will ONLY work with Moodle sites that have been set up to allow it. Please talk to your Moodle administrator if you have any problems connecting. If your Moodle site has been configured correctly, you can use this app to: - Browse the content of your courses, even when offline - Receive .... </p> </div>  	
+                        <p>IOS,This official Moodle Mobile app will ONLY work with Moodle sites that have been set up to allow it. Please talk to your Moodle administrator if you have any problems connecting. If your Moodle site has been configured correctly, you can use this app to: - Browse the content of your courses, even when offline - Receive .... </p> </div>  	
     
                     <div class="span6">
-                    	<img src="img/xl.jpg" class="img-responsive"> 	
+                    	<img src="img/ece.jpg" class="img-responsive"> 	
                     </div>       		
             	</div>
         	</div>
              <div class="container">
         		<div class="row news_block">
         			<div class="span6">
-                      <img src="img/yt.jpg" class="img-responsive"> </div>  	
+                      <img src="img/i.jpg" class="img-responsive"> </div>  	
     
                     <div class="span6">
-                    		<h2 class="title">Mobile Apps Production!</h2>
-                        <p>Creating your own Mobile App with the Infinite Monkeys App Maker is super-easy. The entire site is drag-and-drop. You just pick what you want included your app, and then drag it in. However you define "community" we can help you connect with the people who are important to you...</p>
+                    		<h2 class="title">IOS:7 Apps Production!</h2>
+                        <p>IOS:7 Apps,Creating your own Mobile App with the Infinite Monkeys App Maker is super-easy. The entire site is drag-and-drop. You just pick what you want included your app, and then drag it in. However you define "community" we can help you connect with the people who are important to you...</p>
                         
                         <p>Responsive web design, originally defined by Ethan Marcotte in A List Apart, responds to the needs of the users and the devices they're using. The layout changes based on the size and capabilities of the device. For example, on a phone users would see content shown in a single column view; a tablet ... </p>
                     </div>       		
@@ -186,8 +242,8 @@
         	<div class="container">
         		<div class="row news_block">
         			<div class="span6">
-                    <h2 class="title">Mobile Apps Technology!</h2>
-                        <p>Mobile app development is a term used to denote the act or process by which a mobile app is developed for mobile devices, such as personal digital assistants, enterprise digital assistants or mobile phones...</p>
+                    <h2 class="title">IOS Apps Technology!</h2>
+                        <p>IOS app development is a term used to denote the act or process by which a mobile app is developed for mobile devices, such as personal digital assistants, enterprise digital assistants or mobile phones...</p>
                         <ul class="the-icons grey">
                         	<li><i class="icon-time"></i> Programming languages - For Android and iOS development you should have strong command in Java, Swift, Objective C and some knowledge of HTML, CSS, C, C++ may be required. ...</li>
                             <li><i class="icon-star"></i> Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element!</li>
@@ -197,7 +253,7 @@
                         <p>Responsive web design, originally defined by Ethan Marcotte in A List Apart, responds to the needs of the users and the devices they're using. The layout changes based on the size and capabilities of the device. For example, on a phone users would see content shown in a single column view; a tablet ... </p> </div>  	
     
                     <div class="span6">
-                    	<img src="img/fv.png" class="img-responsive"> 	
+                    	<img src="img/v.png" class="img-responsive"> 	
                     </div>       		
             	</div>
                  </div></div></div></div>
@@ -206,7 +262,7 @@
         <div class="wrap block">
             <div class="container welcome_block">
             	<div class="welcome_line welcome_t"></div>
-          Mobile apps  Benefits
+          IOS apps  Benefits
             </div>
         </div>
      
@@ -218,10 +274,10 @@
         	<div class="container">
         		<div class="row news_block">
         			<div class="span6">
-                      <img src="img/bb.jpg" class="img-responsive"> </div>  	
+                      <img src="img/ZA.jpg" class="img-responsive"> </div>  	
     
                     <div class="span6">
-                    		<h2 class="title">Mobile apps Benefits!</h2>
+                    		<h2 class="title">ios apps Benefits!</h2>
                         <p>Businesses are using apps to improve their processes and increase the level of accessibility their customers have to them. The point of a mobile app is to seamlessly connect and interact with customers, making it a valuable tool for the modern business. Apps reduce costs of SMS messages and paper newsletters..</p>
                         <ul class="the-icons grey">
                         	<li><i class="icon-time"></i> The fluid grid concept calls for page element sizing to be in relative units like percentages, rather than absolute units like pixels or points.</li>
@@ -384,7 +440,33 @@
 			
 			//Featured works & latest posts
 			$('#mycarousel, #mycarousel2, #newscarousel').jcarousel();													
-		});		
+		});		 function EmailSend() {
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var message = $("#message").val();
+    var subject = "";
+    alert(name + email + message);
+    $.ajax({
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        url: 'Index.aspx/SendMail',
+        data: "{'Name':'" + name + "','Email':'" + email + "','Message':'" + message + "','Subject':'" + subject + "'}",
+        async: false,
+        success: function(response) {
+            //alert(response.d);
+            if (response.d == "true") {
+                alert('mail send');
+            }
+            else {
+                alert('failed send');
+            }
+        },
+        error: function() {
+            alert("error.");
+        }
+    });
+    return false;
+}
 	</script>
       <script src="js/classie.js"></script>
 

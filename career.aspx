@@ -1,6 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+<%@ Page Language="C#" %>
+<%@ Import Namespace="System" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Web" %>
+<%@ Import Namespace="System.Web.UI.WebControls" %>
+<%@ Import Namespace="System.Web.UI" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="System.Linq" %>
+<%@ Import Namespace="System.Net" %>
+<%@ Import Namespace="System.Net.Mail" %>
+<%@ Import Namespace="System.Web.Services" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+    void page_Load(Object sender, EventArgs e)
+    {
+        
+    }
+    [WebMethod]
+    public static string SendMail(string Name, string Email, string Message,string Subject)
+    {
+        string msg = string.Empty;
+
+       string to = "nfo.trainingenquiry@gmail.com"; //To address    
+       string from = Email; //From address    
+       MailMessage message = new MailMessage(from, to);
+
+       string mailbody = Message; //"In this article you will learn how to send a email using Asp.Net & C#";
+       message.Subject = Name; //"Sending Email Using Asp.Net & C#";
+       message.Body = mailbody;
+       message.BodyEncoding = Encoding.UTF8;
+       message.IsBodyHtml = true;
+       SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Gmail smtp    
+       System.Net.NetworkCredential basicCredential1 = new
+       System.Net.NetworkCredential("nfo.trainingenquiry@gmail.com", "Swethaa20");
+       client.EnableSsl = false;
+       client.UseDefaultCredentials = false;
+       client.Credentials = basicCredential1;
+       try
+       {
+           client.Send(message);
+           msg = "true";
+       }
+
+       catch (Exception ex)
+       {
+           //throw ex;
+           msg = "false";
+       }
+
+       return msg; 
+    }
+
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
         <meta charset="UTF-8">
             <title>AMV APPLICATION</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,13 +112,13 @@
                             <nav id="main_menu">
                                 <div class="menu_wrap">
                                     <ul class="nav sf-menu">
-                                      <li class="sub-menu"><a href="index.html">Home</a></li>
-                                      <li class="sub-menu"><a href="javascript:{}">About Us</a>
+                                      <li class="sub-menucurrent"><a href="index.html">Home</a></li>
+                                      <li class="sub-menu current"><a href="javascript:{}">About Us</a>
                                         <ul>
                                               <li><a href="about.html"><span>-</span>About us</a></li>
                                               <li><a href="news.html"><span>-</span>News & Events</a></li>
-                                              <li><a href="career.html"><span>-</span>Career</a></li>
-                                               <li><a href="gallery.html"><span>-</span>Gallery</a></li>
+                                              <li class="sub-menu current"><a href="career.html"><span>-</span>Career</a></li>
+                                           <li><a href="gallery.html"><span>-</span>Gallery</a></li>
 
                                           </ul>  
                                       <li class="sub-menu"><a href="javascript:{}"> Solutions</a>
@@ -75,16 +131,15 @@
 
                                           </ul>                                          
                                       </li>
-                                           
-                                          <li class="sub-menu current"><a href="javascript:{}">Mobile Apps</a>
+                                            <li class="sub-menu"><a href="javascript:{}">Mobile Apps</a>
                                           <ul>
                                               <li><a href="web.html"><span>-</span>Responsive Web Apps </a></li>
-                                              <li class="sub-menu current"><a href="mobile.html"><span>-</span>Mobile Application</a></li>
-                                             <li><a href="IOS.html"><span>-</span>IOS Apps </a></li>
+                                              <li><a href="mobile.html"><span>-</span>Mobile Application</a></li>
+                                              <li><a href="IOS.html"><span>-</span>IOS Apps </a></li>
                                
                                           </ul>                                          
-                                      </li>
-                                                 
+                                      </li> 
+                                        
                                       <li class="sub-menu"><a href="javascript:{}">Blog</a>
                                            <ul>
                                               <li><a href="blog.html"><span>-</span>Blog with right sidebar</a></li>
@@ -103,7 +158,7 @@
         
         <!--banner-->
 <div class="banner">    	   
-    <img src="img/mob.jpg" alt="slide">
+    <img src="img/hg.jpg" alt="slide">
     <div class="welcome-message">
         <div class="wrap-info">
             <div class="information">
@@ -120,7 +175,7 @@
         <div class="wrap block">
             <div class="container welcome_block">
             	<div class="welcome_line welcome_t"></div>
-           MOBILE RESPONSIVE APPS<span>AMV Application Solution </span>
+            Carrer<span>AMV Application Solution </span>
                 <div class="welcome_line welcome_b"></div>
             </div>
         </div>
@@ -136,110 +191,138 @@
         	<div class="container">
         		<div class="row news_block">
         			<div class="span6">
-                      <img src="img/ile.jpg" class="img-responsive"> </div>  	
+                      <img src="img/xc.jpg" class="img-responsive"> </div>  	
     
                     <div class="span6">
-                    		<h2 class="title">Mobile App Responsive!</h2>
-                        <p>AMV APPLICTION SOLUTION,Apps that are not preinstalled are usually available through distribution platforms called app stores. They began appearing in 2008 and are typically operated by the owner of the mobile operating system, such as the Apple App Store, Google Play, Windows Phone Store, and BlackBerry App World..feachers.</p>
+                    		<h2 class="title">News & Events!</h2>
+                        <p>AMV APPLICTION SOLUTION,Android Developer, here you come. But some of you may need more convincing when it comes to considering a career in Android Development. So let's look at some key labor statistics and industry reports: A recent article in InformationWeek projected salary increases of nearly 9% for Mobile App Developers in 2016..</p>
                         <ul class="the-icons grey">
-                        	<li><i class="icon-time"></i> The fluid grid concept calls for page element sizing to be in relative units like percentages, rather than absolute units like pixels or points.</li>
-                            <li><i class="icon-star"></i> Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element!</li>
-                            <li><i class="icon-camera"></i> Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, most commonly the width of the browser.</li>
+                        	<li><i class="icon-time"></i> Deep dive into the mobile application developer career path.</li>
+                            <li><i class="icon-star"></i> Compare salaries of mobile developers and related positions.!</li>
+                            <li><i class="icon-camera"></i> Research mobile developer career education requirements..</li>
                             <li><i class="icon-qrcode"></i>Find mobile app development training courses and degrees.</li>
                         </ul>
-                        <p>Apps that are not preinstalled are usually available through distribution platforms called app stores. They began appearing in 2008 and are typically operated by the owner of the mobile operating system, such as the Apple App Store, Google Play, Windows Phone Store, and BlackBerry App World... </p>
+                        <p>Mobile App Developer. Android Developer. Mobile Lead Software Engineer. Mobile Developer. Android Mobile Developer. Mobile Embedded Software Engineer. </p>
                     </div>       		
             	</div>
         	</div>
-             
-             
-             <div class="container">
-        	<div class="container">
-        		<div class="row news_block">
-        			<div class="span6">
-                    <h2 class="title">Apps Responsive!</h2>
-                        <p>Clash of Clans Hack Gems app for free. Clash of Clans Hack Gems Free. Clash of Clans Hack Gems · GTA 5 apk Android app for free. GTA 5 apk Android Free. GTA V (Grand Theft Auto 5) is a part of world famous GTA game series · Fortnite app for free. Fortnite Free. Play Fortnite on your mobile! Mobile Legends Hack ..feachers:</p>
-                        
-                        <p>This official Moodle Mobile app will ONLY work with Moodle sites that have been set up to allow it. Please talk to your Moodle administrator if you have any problems connecting. If your Moodle site has been configured correctly, you can use this app to: - Browse the content of your courses, even when offline - Receive .... </p> </div>  	
-    
-                    <div class="span6">
-                    	<img src="img/xl.jpg" class="img-responsive"> 	
-                    </div>       		
-            	</div>
-        	</div>
-             <div class="container">
-        		<div class="row news_block">
-        			<div class="span6">
-                      <img src="img/yt.jpg" class="img-responsive"> </div>  	
-    
-                    <div class="span6">
-                    		<h2 class="title">Mobile Apps Production!</h2>
-                        <p>Creating your own Mobile App with the Infinite Monkeys App Maker is super-easy. The entire site is drag-and-drop. You just pick what you want included your app, and then drag it in. However you define "community" we can help you connect with the people who are important to you...</p>
-                        
-                        <p>Responsive web design, originally defined by Ethan Marcotte in A List Apart, responds to the needs of the users and the devices they're using. The layout changes based on the size and capabilities of the device. For example, on a phone users would see content shown in a single column view; a tablet ... </p>
-                    </div>       		
-            	</div>
-        	</div>
-             
-             
-             <div class="container">
-        	<div class="container">
-        		<div class="row news_block">
-        			<div class="span6">
-                    <h2 class="title">Mobile Apps Technology!</h2>
-                        <p>Mobile app development is a term used to denote the act or process by which a mobile app is developed for mobile devices, such as personal digital assistants, enterprise digital assistants or mobile phones...</p>
-                        <ul class="the-icons grey">
-                        	<li><i class="icon-time"></i> Programming languages - For Android and iOS development you should have strong command in Java, Swift, Objective C and some knowledge of HTML, CSS, C, C++ may be required. ...</li>
-                            <li><i class="icon-star"></i> Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element!</li>
-                            <li><i class="icon-camera"></i> Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, most commonly the width of the browser.</li>
-                            <li><i class="icon-qrcode"></i>Development Tools - Some of the majorly used tools for developing mobile apps are Phonegap, Appcelerator, Telerik.</li>
-                        </ul>
-                        <p>Responsive web design, originally defined by Ethan Marcotte in A List Apart, responds to the needs of the users and the devices they're using. The layout changes based on the size and capabilities of the device. For example, on a phone users would see content shown in a single column view; a tablet ... </p> </div>  	
-    
-                    <div class="span6">
-                    	<img src="img/fv.png" class="img-responsive"> 	
-                    </div>       		
-            	</div>
-                 </div></div></div></div>
-        <!--Latest news-->
-        
-        <div class="wrap block">
-            <div class="container welcome_block">
-            	<div class="welcome_line welcome_t"></div>
-          Mobile apps  Benefits
-            </div>
         </div>
-     
-     
+        <!--Latest news-->
         
         <!--latest posts-->
         
+        
+        
+         <div class="wrap block">
+        	<div class="container">
+        		<div class="row news_block">
+        			<div class="span6">
+                    	<h2 class="title">Latest news</h2>
+                        <ul id="newscarousel" class="jcarousel-skin-tango">
+                            <li>
+                            	<div class="news_date">19 july<span>2016</span></div>
+                                <div class="news_t"><a href="#">AMV APPLICTION SOLUTION!</a></div>
+                                <div class="news">Posted by <a href="#">Mahesh Kumar A</a>  /  In <a href="#">City</a><br/></div>
+                                <div class="news_info">Android App Development is one of the hottest career options available today. Whether we belong to the technical field or not, today everyone is influenced by Android Technology. As more and more people own smartphones and tablets, there is a huge market for Android! Infact, Android has gone completely viral!. <a href="#">Read more...</a></div>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                            	<div class="news_date">14 november<span>2017</span></div>
+                                <div class="news_t"><a href="#">AMV APPLICTION SOLUTION!</a></div>
+                                <div class="news">Posted by <a href="#">Shweta G</a>  /  In <a href="#">City</a><br/></div>
+                                <div class="news_info">cloud products. Companies like Mulesoft are essential for businesses who are making the digital transformation leap to the cloud, as usually there will be legacy systems in the mix that need to be connected to Salesforce or other SaaS products.<a href="#">Read more...</a></div>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                            	<div class="news_date">14 february<span>2016</span></div>
+                                <div class="news_t"><a href="#">AMV APPLICTION SOLUTION!</a></div>
+                                <div class="news">Posted by <a href="#">Kantamani</a>  /  In <a href="#">City</a><br/></div>
+                                <div class="news_info"> the right career path that you should opt for. But one field that witnesses continuous growth and popularity is Android app development. With over 5 billion smartphones users worldwide, mobile phones have become ubiquitous today.. <a href="#">Read more...</a></div>
+                                <div class="clear"></div>
+                            </li>
+                            <li>
+                            	<div class="news_date">17 march<span>2017</span></div>
+                                <div class="news_t"><a href="#">AMV APPLICTION SOLUTION!</a></div>
+                                <div class="news">Posted by <a href="#">Navya Reddy</a>  /  In <a href="#">City</a><br/></div>
+                                <div class="news_info">eventually got around to revising and passing it. This certification has come about for a very good reason, mainly to replace the old DEV401 (Certified Developer) and to split up declarative and programmatic customisations. The old DEV401 certification was just about declarative customisations to force.com, that is the point and click way of doing things. This was a bit confusing for employers and users, as you could essentially call yourself a Salesforce Developer, even though you were not a developer in the classic sense. . <a href="#">Read more...</a></div>
+                                <div class="clear"></div>
+                            </li>
+                         </ul> 
+                    </div>       		
+            	   <div class="span6">
+                  <img src="img/u.jpg" class="img-responsive"> </div>  	
+        </div>
+        
+             </div></div>  
+        
+        
+         
+        
+             <!--Welcome-->
+        <div class="wrap block">
+            <div class="container welcome_block">
+            	<div class="welcome_line welcome_t"></div>
+            Carrer<span>AMV Application Solution</span>
+                <div class="welcome_line welcome_b"></div>
+            </div>
+        </div>
+     
           <div class="wrap block">
         	<div class="container">
         		<div class="row news_block">
         			<div class="span6">
-                      <img src="img/bb.jpg" class="img-responsive"> </div>  	
-    
-                    <div class="span6">
-                    		<h2 class="title">Mobile apps Benefits!</h2>
-                        <p>Businesses are using apps to improve their processes and increase the level of accessibility their customers have to them. The point of a mobile app is to seamlessly connect and interact with customers, making it a valuable tool for the modern business. Apps reduce costs of SMS messages and paper newsletters..</p>
+                    	<h2 class="title">News OF Android!</h2>
+                        <p>AMV APPLICTION SOLUTION,t turns out, the Galaxy S9 Plus costs a little more than the Galaxy Note 8 to manufacture, but less than the iPhone X.</p>
                         <ul class="the-icons grey">
-                        	<li><i class="icon-time"></i> The fluid grid concept calls for page element sizing to be in relative units like percentages, rather than absolute units like pixels or points.</li>
-                            <li><i class="icon-star"></i> Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element!</li>
-                            <li><i class="icon-camera"></i> Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, most commonly the width of the browser.</li>
-                            <li><i class="icon-qrcode"></i>Find mobile app development training courses and degrees.</li>
+                        	<li><i class="icon-time"></i> Tech Insights has created a table comparing the costs of goods for Samsung’s flagship devices with Apple’s.</li>
+                            <li><i class="icon-star"></i> While the iPhone X has the highest cost of goods, the Galaxy S9 Plus is a close second.!</li>
+                            <li><i class="icon-camera"></i>The Galaxy S9 Plus’ camera sensors and RAM memory saw the biggest increase compared to last year.</li>
+                            
                         </ul>
-                        <p>Get a Customized Mobile App for Your Business Today! Besides using productivity apps such as e-mail and messenger clients, businesses use other mobile apps such as expense trackers, dashboards, etc. which help them perform specialized functions.. </p>
+                        <p>Google has been talking a lot more about security lately, and that’s no surprise. Google’s newfound focus on hardening the platform traces back to a series of security scares in past years, most notably Stagefright in 2015. That breach resulted in a wave of security patches for phones and changes to the Android code base. In the wake of Stagefright, Google required all device makers to display the security patch level of a phone in its settings. It also began issuing security bulletins detailing all the issues included in its new monthly patches.
                     </div>       		
-            	</div>
-        	</div>
-             
+            	   <div class="span6">
+                 <h2 class="title">News OF Android!</h2>
+                        <p>Android has a reputation for being less secure than Apple’s iOS, but Google says its platform has gotten a bad rap. The company has released its fourth annual security report, a 56-page document that details everything Google has done to keep Android users safe. The bottom line, according to Android security head David Kleidermacher, is that Android is actually just as hard to hack as the locked down iOS platform.</p>
+                      
+                        <p>Last year, it unveiled Google Play Protect, which was a rebranding of the old Verify Apps system. This was more about perception — it wants users to know Google is on the lookout for bad apps. According to the newly released report, Google’s machine learning tools spotted 60.3 percent of all potentially harmful apps in the Play Store. The remainder were discovered by other means. Google expects machine learning to play an even more prominent role in the future.<div>  	
+        </div>
         
-         
-         
+             </div>
         
-             <!--Welcome-->
-   
+        
+        <div class="container">
+        		<div class="row news_block">
+        			<div class="span6">
+                    	<h2 class="title">News OF Salesforce!</h2>
+                        <p>Salesforce helps companies connect with their customers in a whole new way. We are blazing new trails in enterprise software every day while focusing on our mission of improving the state of the world.steps are:</p>
+                        <ul class="the-icons grey">
+                        	<li><i class="icon-time"></i> Plan your integration. .</li>
+                            <li><i class="icon-star"></i> Educate your team!</li>
+                            <li><i class="icon-camera"></i> Prep your data..</li>
+                            <li><i class="icon-qrcode"></i>Transfer your data.  </li>
+                            <li><i class="icon-user"></i> Track your progress.& Iterate, update and communicate. ...</li>
+                        </ul>
+                        <p>Life at Salesforce centers around our Ohana values: Trust, Growth, Innovation, Equality, Customer Success, Transparency, Giving Back, Wellbeing, and Fun. These values make us uniquely Salesforce.Unparalleled Rewards. Members of our Ohana enjoy great pay and perks, but they also value the opportunity to learn from some of the most passionate and driven people in the industry, grow their career with us, and give back. OUR REWARDS ...
+                    </div>       		
+            	   <div class="span6">
+                 <h2 class="title">News Of Cloud!</h2>
+                        <p>As grand and innovative and effective as a new software might be (ahem, Salesforce), the integration process can often be draining - usually because implementation was an afterthought. Don’t let this happen at your company! Here are six steps to make your Salesforce implementation pain-free AND successful. (Check out the handy checklist at the bottom of this post,feachers of cloud:</p>
+                        <ul class="the-icons grey">
+                        	<li><i class="icon-time"></i> Communities for sales.</li>
+                            <li><i class="icon-star"></i> Marketing and sales leads.!</li>
+                            <li><i class="icon-camera"></i> Email integration.</li>
+                            <li><i class="icon-qrcode"></i>Opportunities and quotes. </li>
+                            <li><i class="icon-user"></i> Build and run innovative apps.</li>
+                              <li><i class="icon-user"></i>Forecasting.</li>
+                            <li><i class="icon-user"></i> Engage customers everywhere..</li>
+
+                        </ul>
+                        <p>Salesforce.com is the #1 CRM Choice for 100K+ Companies! See Demo.
+37% Increase in Revenue · 37% Increase in Win Rate · +40% Sales Productivity
+Types: Service Cloud, Sales Cloud, Marketing Cloud, Small Business CRM </div>  	
+            </div></div></div></div></div>
+        
         
 
     <!--//page_container-->
@@ -349,11 +432,19 @@
             </div>
         </div>
     
-        </div>
+      
         <!--footer-->
         
         
 
+
+        
+        
+        
+        
+        
+        
+        
     
     	<div class="scrollup">
 			<a href="#"><i class="fa fa-chevron-up"></i></a>
@@ -385,6 +476,33 @@
 			//Featured works & latest posts
 			$('#mycarousel, #mycarousel2, #newscarousel').jcarousel();													
 		});		
+          function EmailSend() {
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var message = $("#message").val();
+    var subject = "";
+    alert(name + email + message);
+    $.ajax({
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        url: 'Index.aspx/SendMail',
+        data: "{'Name':'" + name + "','Email':'" + email + "','Message':'" + message + "','Subject':'" + subject + "'}",
+        async: false,
+        success: function(response) {
+            //alert(response.d);
+            if (response.d == "true") {
+                alert('mail send');
+            }
+            else {
+                alert('failed send');
+            }
+        },
+        error: function() {
+            alert("error.");
+        }
+    });
+    return false;
+}
 	</script>
       <script src="js/classie.js"></script>
 

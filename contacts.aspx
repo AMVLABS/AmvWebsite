@@ -1,8 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+<%@ Page Language="C#" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
         <meta charset="UTF-8">
-            <title>AMV APPLICATION</title>
+            <title>AMV Application</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="keywords" content="HTML,CSS,XML,JavaScript">
@@ -33,10 +40,9 @@
         
     </head>
     
-    <body>
     
-        
-         <div class="header">
+    <body>
+        <div class="header">
     	<div class="wrap">
         	<div class="navbar navbar_ clearfix">
             	<div class="container">
@@ -62,36 +68,36 @@
                                               <li><a href="about.html"><span>-</span>About us</a></li>
                                               <li><a href="news.html"><span>-</span>News & Events</a></li>
                                               <li><a href="career.html"><span>-</span>Career</a></li>
-                                               <li><a href="gallery.html"><span>-</span>Gallery</a></li>
+                                                <li><a href="gallery.html"><span>-</span>Gallery</a></li>
 
-                                          </ul>  
-                                      <li class="sub-menu"><a href="javascript:{}"> Solutions</a>
+                                          </ul>  </li>
+                                      <li class="sub-menu"><a href="javascript:{}">Solutions</a>
                                           <ul>
                                               <li><a href="cloud.html"><span>-</span>Cloud Service</a></li>
                                               <li><a href="Disaster.html"><span>-</span>Disaster Recovery Services</a></li>
                                               <li><a href="Cloudsolution.html"><span>-</span>Cloud Solution Provider</a></li>
-                                              <li><a href="internet.html"><span>-</span>Internet of Things</a></li>  
-                                               <li><a href="amazon.html"><span>-</span>Amazon Services</a></li>                                          
+                                              <li><a href="internet.html"><span>-</span>Internet of Things</a></li>       
+                                              <li><a href="amazon.html"><span>-</span>Amazon Services</a></li>                                          
 
                                           </ul>                                          
                                       </li>
                                            
-                                          <li class="sub-menu current"><a href="javascript:{}">Mobile Apps</a>
+                                         <li class="sub-menu"><a href="javascript:{}">Mobile Apps</a>
                                           <ul>
                                               <li><a href="web.html"><span>-</span>Responsive Web Apps </a></li>
-                                              <li class="sub-menu current"><a href="mobile.html"><span>-</span>Mobile Application</a></li>
-                                             <li><a href="IOS.html"><span>-</span>IOS Apps </a></li>
-                               
+                                              <li><a href="mobile.html"><span>-</span>Mobile Application</a></li>
+                                               <li><a href="IOS.html"><span>-</span>IOS Apps </a></li>
+                                
                                           </ul>                                          
-                                      </li>
-                                                 
+                                      </li> 
+                                        
                                       <li class="sub-menu"><a href="javascript:{}">Blog</a>
                                            <ul>
                                               <li><a href="blog.html"><span>-</span>Blog with right sidebar</a></li>
                                               <li><a href="blog_post.html"><span>-</span>Blog post</a></li>                                      
                                           </ul>
                                       </li>
-                                      <li><a href="contacts.html">Contacts</a></li>
+                                      <li class="current"><a href="contacts.html">Contacts</a></li>
                                     </ul>
                                 </div>
                              </nav>                            
@@ -101,152 +107,53 @@
              </div>
         </div>    
         
-        <!--banner-->
-<div class="banner">    	   
-    <img src="img/mob.jpg" alt="slide">
-    <div class="welcome-message">
-        <div class="wrap-info">
-            <div class="information">
-                    
-                
-        </div> 
+    <!--//header-->
+        
+    <!--page_container-->
+    <div class="page_container">
+    	<div class="breadcrumb">
+        	<div class="wrap">
+            	<div class="container">
+                    <a href="index.html">Contacts</a>
+                </div>
+            </div>
         </div>
+    	<div class="wrap">
+        	<div class="container">
+                <section>
+                	<div class="row">
+                    	<div class="span4">
+                        	<h2 class="title"><span>Contact Info</span></h2>
+                            <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m22!1m12!1m3!1d124443.56908327973!2d77.54466825827146!3d12.916619772669952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m7!3e6!4m0!4m4!1s0x3bae14fbe6242363%3A0x3f74ed130f110c25!3m2!1d12.9166291!2d77.6147088!5e0!3m2!1sen!2sin!4v1520900099290" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+                            <p>12, Outer Ring Rd, Jay Bheema Nagar, 1st Stage,<br> BTM Layout 1, Bengaluru, Karnataka 560068</p>
+                            <p>Phone: 08310701931<br/>Email: <a href="mailto:#">hr@amvlabs.com</a><br/>Web: <a href="#">http://amvlabs.com/</a></p>                           
+                        </div>
+                    	<div class="span8">
+                        	<h2 class="title"><span>Get In Touch</span></h2>
+                            <div class="contact_form">  
+                            	<div id="note"></div>
+                                <div id="fields">
+                                    <form id="ajax-contact-form" action="email.php">
+                                        <input class="span7" type="text" name="name" value="" placeholder="Name (required)" />
+                                        <input class="span7" type="text" name="email" value="" placeholder="Email (required)" />
+                                        <input class="span7" type="text" name="subject" value="" placeholder="Subject" />
+                                        <textarea name="message" id="message" class="span8" placeholder="Message"></textarea>
+                                        <div class="clear"></div>
+                                        <input type="reset" class="btn dark_btn" value="Clear form" />
+                                        <input type="submit" class="btn send_btn" value="Submit" />
+                                        <div class="clear"></div>
+                                    </form>
+                                </div>
+                            </div>                   
+                        </div>                	
+                	</div>
+                </section>
+            </div>
         </div>
     </div>
-        <!--//banner-->
-        
-        <!--welcome-->
-        
-        <div class="wrap block">
-            <div class="container welcome_block">
-            	<div class="welcome_line welcome_t"></div>
-           MOBILE RESPONSIVE APPS<span>AMV Application Solution </span>
-                <div class="welcome_line welcome_b"></div>
-            </div>
-        </div>
-     
-     
-        <!--//welcome-->
-        
-        
-             
-        
-        
-         <div class="wrap block">
-        	<div class="container">
-        		<div class="row news_block">
-        			<div class="span6">
-                      <img src="img/ile.jpg" class="img-responsive"> </div>  	
-    
-                    <div class="span6">
-                    		<h2 class="title">Mobile App Responsive!</h2>
-                        <p>AMV APPLICTION SOLUTION,Apps that are not preinstalled are usually available through distribution platforms called app stores. They began appearing in 2008 and are typically operated by the owner of the mobile operating system, such as the Apple App Store, Google Play, Windows Phone Store, and BlackBerry App World..feachers.</p>
-                        <ul class="the-icons grey">
-                        	<li><i class="icon-time"></i> The fluid grid concept calls for page element sizing to be in relative units like percentages, rather than absolute units like pixels or points.</li>
-                            <li><i class="icon-star"></i> Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element!</li>
-                            <li><i class="icon-camera"></i> Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, most commonly the width of the browser.</li>
-                            <li><i class="icon-qrcode"></i>Find mobile app development training courses and degrees.</li>
-                        </ul>
-                        <p>Apps that are not preinstalled are usually available through distribution platforms called app stores. They began appearing in 2008 and are typically operated by the owner of the mobile operating system, such as the Apple App Store, Google Play, Windows Phone Store, and BlackBerry App World... </p>
-                    </div>       		
-            	</div>
-        	</div>
-             
-             
-             <div class="container">
-        	<div class="container">
-        		<div class="row news_block">
-        			<div class="span6">
-                    <h2 class="title">Apps Responsive!</h2>
-                        <p>Clash of Clans Hack Gems app for free. Clash of Clans Hack Gems Free. Clash of Clans Hack Gems · GTA 5 apk Android app for free. GTA 5 apk Android Free. GTA V (Grand Theft Auto 5) is a part of world famous GTA game series · Fortnite app for free. Fortnite Free. Play Fortnite on your mobile! Mobile Legends Hack ..feachers:</p>
-                        
-                        <p>This official Moodle Mobile app will ONLY work with Moodle sites that have been set up to allow it. Please talk to your Moodle administrator if you have any problems connecting. If your Moodle site has been configured correctly, you can use this app to: - Browse the content of your courses, even when offline - Receive .... </p> </div>  	
-    
-                    <div class="span6">
-                    	<img src="img/xl.jpg" class="img-responsive"> 	
-                    </div>       		
-            	</div>
-        	</div>
-             <div class="container">
-        		<div class="row news_block">
-        			<div class="span6">
-                      <img src="img/yt.jpg" class="img-responsive"> </div>  	
-    
-                    <div class="span6">
-                    		<h2 class="title">Mobile Apps Production!</h2>
-                        <p>Creating your own Mobile App with the Infinite Monkeys App Maker is super-easy. The entire site is drag-and-drop. You just pick what you want included your app, and then drag it in. However you define "community" we can help you connect with the people who are important to you...</p>
-                        
-                        <p>Responsive web design, originally defined by Ethan Marcotte in A List Apart, responds to the needs of the users and the devices they're using. The layout changes based on the size and capabilities of the device. For example, on a phone users would see content shown in a single column view; a tablet ... </p>
-                    </div>       		
-            	</div>
-        	</div>
-             
-             
-             <div class="container">
-        	<div class="container">
-        		<div class="row news_block">
-        			<div class="span6">
-                    <h2 class="title">Mobile Apps Technology!</h2>
-                        <p>Mobile app development is a term used to denote the act or process by which a mobile app is developed for mobile devices, such as personal digital assistants, enterprise digital assistants or mobile phones...</p>
-                        <ul class="the-icons grey">
-                        	<li><i class="icon-time"></i> Programming languages - For Android and iOS development you should have strong command in Java, Swift, Objective C and some knowledge of HTML, CSS, C, C++ may be required. ...</li>
-                            <li><i class="icon-star"></i> Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element!</li>
-                            <li><i class="icon-camera"></i> Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, most commonly the width of the browser.</li>
-                            <li><i class="icon-qrcode"></i>Development Tools - Some of the majorly used tools for developing mobile apps are Phonegap, Appcelerator, Telerik.</li>
-                        </ul>
-                        <p>Responsive web design, originally defined by Ethan Marcotte in A List Apart, responds to the needs of the users and the devices they're using. The layout changes based on the size and capabilities of the device. For example, on a phone users would see content shown in a single column view; a tablet ... </p> </div>  	
-    
-                    <div class="span6">
-                    	<img src="img/fv.png" class="img-responsive"> 	
-                    </div>       		
-            	</div>
-                 </div></div></div></div>
-        <!--Latest news-->
-        
-        <div class="wrap block">
-            <div class="container welcome_block">
-            	<div class="welcome_line welcome_t"></div>
-          Mobile apps  Benefits
-            </div>
-        </div>
-     
-     
-        
-        <!--latest posts-->
-        
-          <div class="wrap block">
-        	<div class="container">
-        		<div class="row news_block">
-        			<div class="span6">
-                      <img src="img/bb.jpg" class="img-responsive"> </div>  	
-    
-                    <div class="span6">
-                    		<h2 class="title">Mobile apps Benefits!</h2>
-                        <p>Businesses are using apps to improve their processes and increase the level of accessibility their customers have to them. The point of a mobile app is to seamlessly connect and interact with customers, making it a valuable tool for the modern business. Apps reduce costs of SMS messages and paper newsletters..</p>
-                        <ul class="the-icons grey">
-                        	<li><i class="icon-time"></i> The fluid grid concept calls for page element sizing to be in relative units like percentages, rather than absolute units like pixels or points.</li>
-                            <li><i class="icon-star"></i> Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element!</li>
-                            <li><i class="icon-camera"></i> Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, most commonly the width of the browser.</li>
-                            <li><i class="icon-qrcode"></i>Find mobile app development training courses and degrees.</li>
-                        </ul>
-                        <p>Get a Customized Mobile App for Your Business Today! Besides using productivity apps such as e-mail and messenger clients, businesses use other mobile apps such as expense trackers, dashboards, etc. which help them perform specialized functions.. </p>
-                    </div>       		
-            	</div>
-        	</div>
-             
-        
-         
-         
-        
-             <!--Welcome-->
-   
-        
-
     <!--//page_container-->
-        
-        
-      <br><br><br><br><br><br>  
-        <!--footer-->
+    
+    <!--footer-->
    
     <div id="footer">
     	<div class="wrap">
@@ -279,7 +186,7 @@
                             	<div class="clear"></div>
                                 <div class="author">Swetha G, Technical Lead.</div>
                             </li>
-                        </ul>                    
+                        </ul>                   
                     </div>
                     <div class="span3">
                     	<h2 class="title">flickr photos</h2>
@@ -349,48 +256,66 @@
             </div>
         </div>
     
-        </div>
-        <!--footer-->
-        
-        
-
-    
-    	<div class="scrollup">
-			<a href="#"><i class="fa fa-chevron-up"></i></a>
-		</div>		
-
-
-        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
-
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/main.js"></script>
-        
-    <script src="js/modernizr.custom.js"></script>
+    <!--//footer-->    
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="js/google-code-prettify/prettify.js"></script>
     <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
-    <script type="text/javascript" src="js/camera.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/superfish.js"></script>
-    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
     <script type="text/javascript" src="js/jquery.tweet.js"></script>
+    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
     <script type="text/javascript" src="js/myscript.js"></script>
+    <script src="js/application.js"></script>
     <script type="text/javascript">
 		$(document).ready(function(){	
-			//Slider
-			$('#camera_wrap_1').camera();
-			
-			//Featured works & latest posts
-			$('#mycarousel, #mycarousel2, #newscarousel').jcarousel();													
+			$("#ajax-contact-form").submit(function() {
+				var str = $(this).serialize();		
+				$.ajax({
+					type: "POST",
+					url: "contact_form/contact_process.php",
+					data: str,
+					success: function(msg) {
+						// Message Sent - Show the 'Thank You' message and hide the form
+						if(msg == 'OK') {
+							result = '<div class="notification_ok">Your message has been sent. Thank you!</div>';
+							$("#fields").hide();
+						} else {
+							result = msg;
+						}
+						$('#note').html(result);
+					}
+				});
+				return false;
+			});															
 		});		
+function EmailSend() {
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var message = $("#message").val();
+    var subject = $("#subject").val();
+    alert(name + email + message + subject);
+    $.ajax({
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        url: 'Index.aspx/SendMail',
+        data: "{'Name':'" + name + "','Email':'" + email + "','Message':'" + message + "','Subject':'" + subject + "'}",
+        async: false,
+        success: function(response) {
+            //alert(response.d);
+            if (response.d == "true") {
+                alert('mail send');
+            }
+            else {
+                alert('failed send');
+            }
+        },
+        error: function() {
+            alert("error.");
+        }
+    });
+    return false;
+}	
 	</script>
-      <script src="js/classie.js"></script>
-
-    <script src="js/thumbnailGridEffects.js"></script>
-
-
-    </body>
-
+</body>
 </html>
